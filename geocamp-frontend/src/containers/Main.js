@@ -1,30 +1,20 @@
 import React from 'react';
-import {authUser} from '../store/actions/auth';
 import {Switch, Route, withRouter} from 'react-router-dom';
-import { connect } from "react-redux";
 import Landing from './Landing';
+import Catalogue from './Catalogue';
 
 const Main = props => {
-    const {authUser, currentUser} = props;
     return(
         <div className='container'>
             <Switch>
                 <Route exact path='/' render={props => <Landing
-                currentUser={currentUser}
-                onAuth={authUser}
                 {...props}
-            />}/>
+                />}/>
+                <Route exact path='/catalogue' render={props => <Catalogue
+                {...props}/>}/>
             </Switch>
         </div>
     )
 }
 
-function mapStateToProps(state) {
-    return {
-      currentUser: state.currentUser
-    };
-}
-
-export default withRouter(
-    connect(mapStateToProps, {authUser})(Main)
-  );;
+export default withRouter(Main);

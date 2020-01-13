@@ -1,7 +1,9 @@
 const express = require('express');
-const passport = require('passport');
-const router = new express.Router;
+const router = express.Router();
 
+const {googleLogin, facebookLogin} = require('../controllers/auth');
 
+router.post('/google-login', googleLogin);
+router.post('/facebook-login', facebookLogin);
 
 module.exports = router;
