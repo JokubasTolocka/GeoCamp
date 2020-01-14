@@ -1,22 +1,30 @@
 import React, {Component} from 'react';
-import {Link, withRouter} from 'react-router-dom';
-import {isAuth, signout} from '../helpers/helpers';
+import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {logout} from '../store/actions/auth';
 
 class Navbar extends Component{
-    logout(){
-        signout();
+    logout = e => {
+        e.preventDefault();
+        this.props.logout();
     }
 
     render(){
         return(
-            <div>
-                <Link to='/'>GeoCamp</Link>
-                {isAuth() ? (
+            <div className='navbar'>
+                <Link className='home' to='/'>GeoCamp</Link>
+                {this.props.currentUser.isAuthenticated ? (
                     <button onClick={this.logout}>Logout</button>
-                ) : null}
+                ): null}
             </div>
         )
     }
 }
 
-export default withRouter(Navbar);
+function mapStateToProps(state){
+    return {
+       currentUser: state.currentUser 
+    };
+}
+
+export default connect(mapStateToProps, {logout})(Navbar);

@@ -1,34 +1,33 @@
-import React from 'react'
-import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
-import axios from 'axios';
+import React, {Component} from 'react'
+import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
+import {connect} from 'react-redux';
+import {authFacebookUser } from '../store/actions/auth';
 
-const Facebook = ({informParent = f => f}) => {
-    const responseFacebook = (res) => {
-        axios({
-            method: 'POST',
-            url: `http://localhost:8000/api/facebook-login`,
-            data: {userID: res.userID, accessToken: res.accessToken}
-        })
-        .then(res => {
-            informParent(res);
-        })
-        .catch(err => {
+
+class Facebook extends Component{
+    responseFacebook = (res) => {
+        this.props.authFacebookUser({
+            userID: res.userID, 
+            accessToken: res.accessToken
         })
     }
-    
+    render(){
     return(
         <div>
             <FacebookLogin
                 appId={`${process.env.REACT_APP_FACEBOOK_APP_ID}`}
                 autoLoad={false}
-                callback={responseFacebook} 
+                callback={this.responseFacebook} 
                 render={renderProps => (
-                    <button onClick={renderProps.onClick}
-                    >Facebook Login</button>
+                    <button 
+                        onClick={renderProps.onClick}
+                        className='btn btn-fb'
+                    ><i id='google' class="fab fa-facebook"></i> Facebook Login</button>
                 )}
                 />
         </div>
-    )
+        )
+    }
 }
 
-export default Facebook;
+export default connect(null, {authFacebookUser})(Facebook);

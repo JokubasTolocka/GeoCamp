@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-import { isAuth } from '../helpers/helpers';
+import {connect} from 'react-redux';
 
 class Catalogue extends Component{
 
 
 
     render(){
-        if(!isAuth()){
+        if(!this.props.currentUser.isAuthenticated){
             this.props.history.push('/');
         }
         return(
@@ -17,4 +17,10 @@ class Catalogue extends Component{
     }
 }
 
-export default Catalogue;
+function mapStateToProps(state){
+    return {
+       currentUser: state.currentUser 
+    };
+}
+
+export default connect(mapStateToProps, {})(Catalogue);

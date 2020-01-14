@@ -1,24 +1,30 @@
 import React, {Component} from 'react';
-import {authenticate, isAuth} from '../helpers/helpers';
 import Facebook from './Facebook';
 import Google from './Google';
+import {connect} from 'react-redux';
 
 
 class Landing extends Component{
-    informParent = res => {
-        authenticate(res, () => {
-            isAuth() ? this.props.history.push('/catalogue') : this.props.history.push('/');
-        })
-    }
 
     render(){
+        if(this.props.currentUser.isAuthenticated){
+            this.props.history.push('/catalogue');
+        }
         return(
-            <div>
-            <Facebook informParent={this.informParent}/>
-            <Google informParent={this.informParent}/>
-            </div>
+            <section>
+                <div className='landing'>
+                    <Facebook />
+                    <Google />
+                </div>
+            </section>
         )
     }
 }
 
-export default Landing;
+function mapStateToProps(state){
+    return {
+       currentUser: state.currentUser 
+    };
+}
+
+export default connect(mapStateToProps, {})(Landing);

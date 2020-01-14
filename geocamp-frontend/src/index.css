@@ -11,3 +11,67 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.App{
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+}
+/* landing */
+.landing{
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  height: 140px;
+  width: 100%;
+}
+.btn{
+  position: relative;
+  font-family: 'Segoe UI';
+  margin-top: 16px;
+  border-radius: 8px;
+  border: none;
+  width:  170px;
+  padding: 16px 16px;
+  font-weight: 600;
+  color: #f9f9f9;
+}
+.btn:focus{
+  outline: none;
+}
+.btn:hover{
+  cursor: pointer;
+}
+.btn-fb{
+  margin-right: 4px;
+  background-color: #3A63BF;
+}
+.btn-g{
+  margin-left: 4px;
+  background-color: #C94131;
+}
+#google{
+  padding-right: 5px;
+  font-size: 18px;
+}
+
+/* navbar */
+
+.navbar{
+  padding: 20px 10%;
+  display: flex;
+  font-weight: 600;
+  font-size: large;
+  justify-content: space-between;
+}
+.home{
+  text-decoration:none ;
+  color: black;
+  transition:  0.2s ease-in-out;
+}
+.home:hover{
+  transform: translateY(5px);
+}
+

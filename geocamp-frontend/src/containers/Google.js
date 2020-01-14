@@ -1,37 +1,34 @@
-import React from 'react'
+import React, {Component} from 'react'
 import GoogleLogin from 'react-google-login';
-import axios from 'axios';
+import {connect} from 'react-redux';
+import {authGoogleUser} from '../store/actions/auth'
 
-const Google = ({informParent = f => f}) => {
-    const responseGoogle = (res) => {
-        axios({
-            method: 'POST',
-            url: `http://localhost:8000/api/google-login`,
-            data: {idToken: res.tokenId}
-        })
-        .then(res => {
-            informParent(res);
-        })
-        .catch(err => {
 
-        })
+class Google extends Component{
+    responseGoogle = (res) => {
+        this.props.authGoogleUser({idToken: res.tokenId})
+            .then(() => {
+                
+            })
     }
-    console.log(process.env.REACT_APP_GOOGLE_CLIENT_ID)
-    
-    return(
-        <div>
-            <GoogleLogin 
-                clientId={`${process.env.REACT_APP_GOOGLE_CLIENT_ID}`}
-                render={renderProps => (
-                    <button onClick={renderProps.onClick}
-                    >Google Login</button>
-                )}
-                onSuccess={responseGoogle}
-                onFailure={responseGoogle}
-                cookiePolicy={'single_host_origin'}
-            />
-        </div>
-    )
+    render(){
+        return(
+            <div>
+                <GoogleLogin 
+                    clientId={`${process.env.REACT_APP_GOOGLE_CLIENT_ID}`}
+                    render={renderProps => (
+                        <button 
+                            onClick={renderProps.onClick}
+                            className='btn btn-g'
+                        ><i id='google' class="fab fa-google"></i> Google Login</button>
+                    )}
+                    onSuccess={this.responseGoogle}
+                    onFailure={this.responseGoogle}
+                    cookiePolicy={'single_host_origin'}
+                />
+            </div>
+        )
+    }
 }
 
-export default Google;
+export default connect(null, {authGoogleUser})(Google);

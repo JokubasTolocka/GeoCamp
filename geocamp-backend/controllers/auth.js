@@ -64,7 +64,6 @@ exports.googleLogin = (req,res) => {
                             user: {_id, email, name, role}
                         });
                     } else {
-                        console.log('het');
                         let password = email + process.env.JWT_SECRET;
                         user = new User({name, email, password})
                         user.save((err, data) => {
