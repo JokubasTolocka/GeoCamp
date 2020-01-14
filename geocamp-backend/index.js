@@ -8,6 +8,7 @@ const express = require('express'),
       mongoose = require('mongoose'),
       helmet = require('helmet');
 
+mongoose.set('debug', true);
 mongoose.connect(process.env.DATABASE, {
     useNewUrlParser: true,
     useFindAndModify: false,

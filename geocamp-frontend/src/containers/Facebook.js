@@ -22,7 +22,7 @@ class Facebook extends Component{
                     <button 
                         onClick={renderProps.onClick}
                         className='btn btn-fb'
-                    ><i id='google' class="fab fa-facebook"></i> Facebook Login</button>
+                    ><i id='google' className="fab fa-facebook"></i> Facebook Login</button>
                 )}
                 />
         </div>

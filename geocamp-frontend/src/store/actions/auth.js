@@ -1,5 +1,6 @@
 import { apiCall, setTokenHeader } from "../../services/api";
 import { SET_CURRENT_USER } from "../actionTypes";
+import { toast} from 'react-toastify'
 
 export function setCurrentUser(user) {
     return {
@@ -54,4 +55,53 @@ export function authFacebookUser(data){
                 });
         });
     };
-  }
+}
+
+export function signupCall(name, email, password){
+    return dispatch => {
+        return new Promise((resolve, reject) => {
+            return apiCall('post', 'http://localhost:8000/api/signup', {name, email, password})
+            .then(res => {
+                toast.success(res.message);
+                resolve();
+            })
+            .catch(err => {
+                console.log(err);
+                reject();
+            })
+        })
+    }
+}
+export function validateUser(token){
+    return dispatch => {
+        return new Promise((resolve, reject) => {
+            return apiCall('post', 'http://localhost:8000/api/account-activation', {token: token})
+            .then(res => {
+                toast.success(res.message);
+                resolve();
+            })
+            .catch(err => {
+                console.log(err);
+                reject();
+            })
+        })
+    }
+}
+
+export function signinCall(email, password){
+    return dispatch => {
+        return new Promise((resolve, reject) => {
+            return apiCall('post', `http://localhost:8000/api/signin`, {email: email, password: password})
+                .then(({token, ...user}) => {
+                    localStorage.setItem('token', token);
+                    setAuthorizationToken(token);
+                    dispatch(setCurrentUser(user.user));
+                    resolve();
+                })
+                .catch(err => {
+                    console.log(err);
+                    reject();
+                });
+        });
+    };
+}
