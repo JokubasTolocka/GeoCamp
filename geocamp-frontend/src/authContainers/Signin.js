@@ -14,15 +14,16 @@ class Signin extends Component{
             buttonText: 'Signin'
         }
     }
+    componentDidMount(){
+        this.setState({name: '', email:''})
+    }
+
     handleChange = e => {
         this.setState({ [e.target.name]: e.target.value });
     }
     handleSubmit = e => {
         e.preventDefault();
         this.props.signinCall(this.state.email, this.state.password)
-            .then(() => {
-                this.setState({name: '', email:''})
-            })
     }
     render(){
         const {email, buttonText, password} = this.state;
