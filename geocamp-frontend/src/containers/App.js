@@ -6,7 +6,7 @@ import Main from './Main';
 import { setAuthorizationToken, setCurrentUser } from '../store/actions/auth';
 import jwtDecode from 'jwt-decode';
 import Navbar from './Navbar';
-import Background from '../images/BGimg.jpeg'
+// import Background from '../images/BGimg.jpeg'
 
 const store = configureStore();
 
@@ -19,16 +19,16 @@ if(localStorage.token){
   }
 }
 
-var sectionStyle = {
-  backgroundImage: `url(${Background})`
-};
+// var sectionStyle = {
+//   backgroundImage: `url(${Background})`
+// };
 
 class App extends Component {
   render(){
     return(
       <Provider store={store}>
         <Router>
-          <div className="App" style={sectionStyle}>
+          <div className="App" >
             <Navbar/>
             <Main/>
           </div>

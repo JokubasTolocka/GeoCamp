@@ -38,38 +38,46 @@ class Signup extends Component{
         return(
             <div>
                 <ToastContainer/>
-                <form>
-                <div>
-                    <label htmlFor='name'>Name</label>
-                    <input
-                    type='text'
-                    onChange={this.handleChange}
-                    value={name}
-                    name='name'
-                    />
-                </div>
-                <div>
-                    <label htmlFor='email'>Email</label>
-                    <input
-                    type='email'
-                    onChange={this.handleChange}
-                    value={email}
-                    name='email'
-                    />
-                </div>
-                <div>
-                    <label htmlFor='password'>Password</label>
-                    <input
-                    type='password'
-                    onChange={this.handleChange}
-                    value={password}
-                    name='password'
-                    />
-                </div>
-                <div>
-                    <button onClick={this.handleSubmit}>{buttonText}</button>
-                </div>
-                </form>
+                    <div className='sign-form'>
+                        <form>
+                        <div>
+                            <label htmlFor='name'></label>
+                            <input
+                            placeholder='Name'
+                            className='sign-input'
+                            type='text'
+                            onChange={this.handleChange}
+                            value={name}
+                            name='name'
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor='email'></label>
+                            <input
+                            placeholder='Email'
+                            className='sign-input'
+                            type='email'
+                            onChange={this.handleChange}
+                            value={email}
+                            name='email'
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor='password'></label>
+                            <input
+                            placeholder='Password'
+                            className='sign-input'
+                            type='password'
+                            onChange={this.handleChange}
+                            value={password}
+                            name='password'
+                            />
+                        </div>
+                        <div>
+                            <button className='sign-button' onClick={this.handleSubmit}>{buttonText}</button>
+                        </div>
+                        </form>
+                    </div>
             </div>
         )
     }

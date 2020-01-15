@@ -35,21 +35,24 @@ class Landing extends Component{
         return(
             <section>
                 <div className='landing'>
-
-                    <button onClick={this.handleSignup}>Signup</button>
+                    <div className='landing-buttons'>
+                    <button className='landing-sign' onClick={this.handleSignup}>Signup</button>
                     {showSignup ? 
                     <div>
                         <Signup/>
                     </div>
                     : null}
-                    <button onClick={this.handleSignin}>Signin</button>
+                    <button className='landing-sign' onClick={this.handleSignin}>Signin</button>
                     {showSignin ? 
                     <div>
                         <Signin/>
                     </div>
                     : null}
-                    <Facebook />
-                    <Google />
+                    </div>
+                    <div className='landing-buttons-external'>
+                        <Facebook />
+                        <Google />
+                    </div>
                 </div>
             </section>
         )

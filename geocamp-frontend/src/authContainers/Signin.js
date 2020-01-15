@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {signinCall} from '../store/actions/auth';
-import {ToastContainer} from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.min.css';
 import { connect } from 'react-redux';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 class Signin extends Component{
     constructor(props){
@@ -26,30 +26,37 @@ class Signin extends Component{
     render(){
         const {email, buttonText, password} = this.state;
         return(
-            <div>
-                <form>
-                    <div>
-                        <label htmlFor='email'>Email</label>
-                        <input
-                        type='email'
-                        onChange={this.handleChange}
-                        value={email}
-                        name='email'
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor='password'>Password</label>
-                        <input
-                        type='password'
-                        onChange={this.handleChange}
-                        value={password}
-                        name='password'
-                        />
-                    </div>
-                    <div>
-                        <button onClick={this.handleSubmit}>{buttonText}</button>
-                    </div>
-                </form>
+            <div className='sign-blur'>
+                <ToastContainer/>
+                <div className='sign-form'>
+                    <form>
+                        <div>
+                            <label htmlFor='email'></label>
+                            <input
+                            placeholder='Email'
+                            className='sign-input'
+                            type='email'
+                            onChange={this.handleChange}
+                            value={email}
+                            name='email'
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor='password'></label>
+                            <input
+                            placeholder='Password'
+                            className='sign-input'
+                            type='password'
+                            onChange={this.handleChange}
+                            value={password}
+                            name='password'
+                            />
+                        </div>
+                        <div>
+                            <button className='sign-button' onClick={this.handleSubmit}>{buttonText}</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         )
     }

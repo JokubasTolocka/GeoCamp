@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {logout} from '../store/actions/auth';
+import GeoCampLogo from '../images/GeoCampLogo.png'
 
 class Navbar extends Component{
     logout = e => {
@@ -12,7 +13,9 @@ class Navbar extends Component{
     render(){
         return(
             <div className='navbar'>
-                <Link className='home' to='/'>GeoCamp</Link>
+                <Link to='/'>
+                    <img className='home' src={GeoCampLogo} alt='Logo'/>
+                </Link>
                 {this.props.currentUser.isAuthenticated ? (
                     <button onClick={this.logout}>Logout</button>
                 ): null}

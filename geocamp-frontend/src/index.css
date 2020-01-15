@@ -5,38 +5,69 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
-.App{
+  background-image: url("BGimg.jpeg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  background-attachment: fixed;
+}
+
+.App{
   height: 100vh;
 }
 /* landing */
 .landing{
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   position: fixed;
   bottom: 0;
-  height: 140px;
+  height: 170px;
   width: 100%;
+  background-color: #ffffff;
+  /* background-color: rgba(255, 255, 255, .15);  
+  backdrop-filter: blur(5px); */
+}
+.landing-buttons{
+  display: flex;
+}
+.landing-buttons-external{
+  display: flex;
+}
+.landing-sign{
+  margin: 4px 4px;
+  width:  170px;
+  padding: 16px 16px;
+  border-radius: 8px;
+  margin-top: 16px;
+  cursor: pointer;
+  border: none;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  padding-top: 12px;
+  font-family: 'Segoe UI';
+  background-color: #f18232;
+  -webkit-box-shadow: 12px 10px 34px -3px rgba(0,0,0,0.83);
+-moz-box-shadow: 12px 10px 34px -3px rgba(0,0,0,0.83);
+box-shadow: 12px 10px 34px -3px rgba(0,0,0,0.83);
+
+  
 }
 .btn{
   position: relative;
   font-family: 'Segoe UI';
-  margin-top: 16px;
+  margin-top: 8px;
   border-radius: 8px;
   border: none;
   width:  170px;
   padding: 16px 16px;
   font-weight: 600;
   color: #f9f9f9;
+  -webkit-box-shadow: 12px 10px 34px -3px rgba(0,0,0,0.83);
+-moz-box-shadow: 12px 10px 34px -3px rgba(0,0,0,0.83);
+box-shadow: 12px 10px 34px -3px rgba(0,0,0,0.83);
+
 }
 .btn:focus{
   outline: none;
@@ -67,11 +98,45 @@ code {
   justify-content: space-between;
 }
 .home{
-  text-decoration:none ;
-  color: black;
+  height: 45px;
   transition:  0.2s ease-in-out;
 }
 .home:hover{
   transform: translateY(5px);
+}
+/* sign forms */
+.sign-form{
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  background-color: rgba(255, 255, 255, .15);  
+  backdrop-filter: blur(5px);
+  z-index: 2;
+  bottom: 230px;
+  padding: 32px;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  border-radius: 8px;
+  z-index: 1;
+}
+.sign-input{
+  border:none;
+  width: 300px;
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin: 4px;
+  filter: blur(0px);
+}
+.sign-button{
+  width: 200px;
+  margin: 4px;
+  border-radius: 8px;
+  border: none;
+  padding: 10px 12px;
 }
 

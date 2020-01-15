@@ -51,6 +51,7 @@ export function authFacebookUser(data){
                     resolve();
                 })
                 .catch(err => {
+                    toast.error(err.response.data.error);
                     reject();
                 });
         });
@@ -66,7 +67,7 @@ export function signupCall(name, email, password){
                 resolve();
             })
             .catch(err => {
-                console.log(err);
+                toast.error(err.response.data.error);
                 reject();
             })
         })
@@ -81,7 +82,7 @@ export function validateUser(token){
                 resolve();
             })
             .catch(err => {
-                console.log(err);
+                toast.error(err.response.data.error);
                 reject();
             })
         })
@@ -99,7 +100,7 @@ export function signinCall(email, password){
                     resolve();
                 })
                 .catch(err => {
-                    console.log(err);
+                    toast.error(err.response.data.error);
                     reject();
                 });
         });
