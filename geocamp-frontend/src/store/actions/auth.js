@@ -106,3 +106,35 @@ export function signinCall(email, password){
         });
     };
 }
+
+export function forgotPassword(email){
+    return dispatch => {
+        return new Promise((resolve, reject) => {
+            return apiCall('put', `http://localhost:8000/api/forgot-password`, {email: email})
+                .then(res => {
+                    toast.success(res.message)
+                    resolve();
+                })
+                .catch(err => {
+                    toast.error(err.response.data.error);
+                    reject();
+                })
+        })
+    }
+}
+
+export function resetPassword(newPassword, token){
+    return dispatch => {
+        return new Promise((resolve, reject) => {
+            return apiCall('put', `http://localhost:8000/api/reset-password`, {newPassword: newPassword, resetPasswordLink: token})
+                .then(res => {
+                    toast.success(res.message)
+                    resolve();
+                })
+                .catch(err => {
+                    toast.error(err.response.data.error);
+                    reject();
+                })
+        })
+    }
+}

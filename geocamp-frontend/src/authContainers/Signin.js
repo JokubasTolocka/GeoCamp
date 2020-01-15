@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {signinCall} from '../store/actions/auth';
 import { connect } from 'react-redux';
+import {Link} from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 
@@ -54,6 +55,7 @@ class Signin extends Component{
                         </div>
                         <div>
                             <button className='sign-button' onClick={this.handleSubmit}>{buttonText}</button>
+                            <Link to='/auth/password/forgot'>Forgot password</Link>
                         </div>
                     </form>
                 </div>
