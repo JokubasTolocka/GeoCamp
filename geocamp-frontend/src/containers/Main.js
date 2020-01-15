@@ -5,6 +5,7 @@ import Catalogue from './Catalogue';
 import Validate from '../authContainers/Validate';
 import Forgot from '../authContainers/Forgot';
 import Reset from '../authContainers/Reset';
+import NewCamp from './NewCamp'
 
 const Main = props => {
     return(
@@ -20,6 +21,8 @@ const Main = props => {
                 <Route exact path='/auth/password/forgot' render={props => <Forgot
                 {...props}/>}/>
                 <Route exact path='/auth/password/reset/:token' render={props => <Reset
+                {...props}/>}/>
+                <Route exact path='/users/:id/new' render={props => <NewCamp
                 {...props}/>}/>
             </Switch>
         </div>

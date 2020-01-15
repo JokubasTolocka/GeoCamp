@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {ToastContainer} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.min.css';
 
 class Catalogue extends Component{
 
@@ -11,7 +13,8 @@ class Catalogue extends Component{
         }
         return(
             <div>
-            <h1>Hi from Catalogue</h1>
+                <ToastContainer/>
+                <h1>Hi from Catalogue</h1>
             </div>
         )
     }

@@ -104,6 +104,27 @@ box-shadow: 12px 10px 34px -3px rgba(0,0,0,0.83);
 .home:hover{
   transform: translateY(5px);
 }
+.nav-authenticated{
+  display: flex;
+}
+.logout{
+  background: none;
+  border: none;
+  font-size: 1em;
+  margin-top: 18px;
+  height: 25px;
+  padding: 0 10px;
+  color: black;
+  font-family: 'Segoe UI';
+  font-weight: 600;
+}
+.new{
+  text-decoration: none;
+  color: black;
+  padding: 0 10px;
+  font-weight: 600;
+  font-size: 1em;
+}
 /* sign forms */
 .sign-form{
   overflow: hidden;
@@ -140,3 +161,51 @@ box-shadow: 12px 10px 34px -3px rgba(0,0,0,0.83);
   padding: 10px 12px;
 }
 
+/* create campground */
+
+.create-form{
+  background-color: rgba(0, 0, 0, 0.342);  
+  backdrop-filter: blur(5px);
+  width: 500px;
+  margin: 60px auto;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  align-items: center;
+
+}
+.create-form h1, .create-form h3{
+  text-align: center;
+  font-weight: 100;
+  color: white;
+}
+.create-form h3{
+  margin: 10px 40px 24px 40px;
+  font-size: 16px;
+}
+.create-input{
+  width: 400px;
+  font-family: 'Segoe UI';
+  border-radius: 8px;
+  border: none;
+  padding: 10px 12px;
+  margin: 4px 10px 4px 10px;
+}
+.textarea{
+  border: none;
+}
+.create-google{
+  width: 500px;
+  height: 200px;
+}
+.create-button{
+  margin: 24px 10px 30px 10px;
+  padding: 10px 12px;
+  width: 170px;
+  border-radius: 8px;
+  border: none;
+}
+
+.create-button:focus, .create-input:focus{
+  outline: none;
+}

@@ -17,7 +17,10 @@ class Navbar extends Component{
                     <img className='home' src={GeoCampLogo} alt='Logo'/>
                 </Link>
                 {this.props.currentUser.isAuthenticated ? (
-                    <button onClick={this.logout}>Logout</button>
+                    <div className='nav-authenticated'>
+                        <Link className='new' to={`/users/${this.props.currentUser.user._id}/new`}><h3 className='home new'>New Camp</h3></Link>
+                        <button className='home logout' onClick={this.logout}>Logout</button>
+                    </div>
                 ): null}
             </div>
         )
