@@ -42,8 +42,14 @@ class NewCamp extends Component{
             image: this.state.image,
             user: this.props.currentUser.user._id
         }
-        console.log(data);
-        // this.props.postCampground(data);
+        this.props.postCampground(data);
+        this.setState({
+            center: null,
+            name: '',
+            description: '',
+            image: '', 
+        })
+        this.props.history.push('/');
     }
 
     render(){

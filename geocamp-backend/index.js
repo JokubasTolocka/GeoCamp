@@ -5,6 +5,7 @@ const express = require('express'),
       PORT = process.env.PORT || 8000,
       cors = require('cors'),
       authRoutes = require('./routes/auth'),
+      campgroundRoutes = require('./routes/campground'),
       mongoose = require('mongoose'),
       helmet = require('helmet');
 
@@ -29,6 +30,7 @@ if(process.env.NODE_ENV = 'development') {
 }
 
 app.use('/api', authRoutes);
+app.use('/api', campgroundRoutes);
 
 app.listen(PORT, function(){
     console.log(`Server is starting on ${PORT}`);
