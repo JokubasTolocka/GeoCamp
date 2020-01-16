@@ -1,11 +1,11 @@
-import  {LOAD_CAMPS} from '../actionTypes';
+import  {LOAD_CAMPS, REMOVE_CAMP} from '../actionTypes';
 
 const campgrounds = (state=[], action) => {
     switch(action.type){
         case LOAD_CAMPS:
             return action.camps;
-        // case REMOVE_REVIEW:
-        //     return state.filter(review => review._id !== action.id);
+        case REMOVE_CAMP:
+            return state.filter(camp => camp._id !== action.id);
         default:
             return state;
     }

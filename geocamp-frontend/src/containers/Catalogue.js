@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {fetchCamps} from '../store/actions/campgrounds';
 import {ToastContainer} from 'react-toastify'
+import CampgroundCard from '../components/CampgroundCard';
 import 'react-toastify/dist/ReactToastify.min.css';
 
 class Catalogue extends Component{
@@ -25,14 +26,34 @@ class Catalogue extends Component{
 
 
     render(){
-        console.log(this.props.campgrounds)
+        const {lat, lng} = this.state;
+        const{ campgrounds} = this.props;
+        const CampList = campgrounds.map(camp => {
+            return(
+                <CampgroundCard
+                    key={camp._id}
+                    id={camp._id}
+                    user={camp.user.name}
+                    user_id={camp.user._id}
+                    name={camp.name}
+                    image={camp.image}
+                    date={camp.createdAt}
+                    lat={camp.location.lat}
+                    lng={camp.location.lng}
+                    currentUserLat={lat}
+                    currentUserLng={lng}
+                />
+            )
+        })
         if(!this.props.currentUser.isAuthenticated){
             this.props.history.push('/');
         }
         return(
             <div>
                 <ToastContainer/>
-                <h1>Hi from Catalogue</h1>
+                <div className='card-list'>
+                    {CampList}
+                </div>
             </div>
         )
     }

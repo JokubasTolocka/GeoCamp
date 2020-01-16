@@ -209,3 +209,161 @@ box-shadow: 12px 10px 34px -3px rgba(0,0,0,0.83);
 .create-button:focus, .create-input:focus{
   outline: none;
 }
+
+/* camp card */
+.card-list{
+  display: flex;
+  flex-wrap: wrap;
+  background-color: rgba(0, 0, 0, 0.342);  
+  backdrop-filter: blur(5px);
+  border-radius: 8px;
+  margin: auto 10%;
+}
+.card{
+  text-decoration: none;
+  width: 250px;
+  margin: 25px 20px;
+}
+
+.camp-card{
+  border-radius: 8px;
+  text-decoration: none;
+  background-color: #ffffff;
+  width: 250px;
+}
+.card-middle{
+  overflow: hidden;
+  height: 250px;
+}
+
+.card-image{
+  filter: brightness(0.8);
+  overflow: hidden;
+  object-fit: cover;
+  position: relative;
+  width: 250px;
+  height: 250px;
+  transition: transform .5s ease-in-out;
+}
+.card-image:hover{
+  transform: scale(1.1);
+}
+.card-top{
+  color: #303030;
+  text-decoration: none;
+  height: 30px;
+  padding-left: 8px;
+  padding-top: 5px;
+}
+.card-title{
+  font-family: 'Merriweather', serif;
+  text-transform: uppercase;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: left;
+  text-decoration: none;
+  color:  white;
+  z-index: 2;
+  word-break: normal;
+  font-size: 22px;
+  transform: translateY(-240px);
+}
+.card-bottom{
+  display: flex;
+  justify-content: space-between;
+}
+.card-user{
+  color: #303030;
+  font-weight: 500;
+  text-decoration: none;
+  padding-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 6px;
+  padding-bottom: 10px;
+}
+.card-distance{
+  margin-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+  color: #5e5e5e;
+  margin-bottom: 6px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+/* campground page */
+
+.camp-page{
+  background-color: rgba(0, 0, 0, 0.342);  
+  backdrop-filter: blur(5px);
+  border-radius: 8px;
+  width: 600px;
+  margin: auto auto;
+}
+.camp-top{
+  display: flex;
+}
+.camp-top-left{
+  margin-top: 20px;
+  flex-basis: 50%;
+  margin-left: 16px;
+  color: white;
+}
+.camp-image{
+  border-radius: 8px;
+  flex-basis: 50%;
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-right: 16px;
+  overflow: hidden;
+  object-fit: cover;
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.campground-image{
+  overflow: hidden;
+  position: relative;
+  height: 200px;
+}
+
+.camp-text{
+  margin: 40px 32px 40px 32px;
+  text-transform: lowercase;
+  color: white;
+  font-weight: 100;
+  font-size: 16px;
+}
+.camp-description{
+
+}
+.camp-map{
+  width: 600px;
+  height: 200px;
+  padding-bottom: 30px;
+}
+.camp-field{
+  margin-bottom: 0;
+  margin-top: 10px;
+  color: #d1d1d1;
+  font-weight: 100;
+}
+.camp-title{
+  margin-top: 0;
+  word-break: break-all;
+  text-transform: capitalize;
+}
+.camp-buttons{
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 16px;
+  margin-right: 10px;
+}
+.camp-delete{
+  border: none;
+  border-radius: 8px;
+  padding: 5px 16px;
+  color: white;
+  background-color: #b33939;
+}

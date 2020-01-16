@@ -6,6 +6,7 @@ import Validate from '../authContainers/Validate';
 import Forgot from '../authContainers/Forgot';
 import Reset from '../authContainers/Reset';
 import NewCamp from './NewCamp'
+import CampgroundPage from './CampgroundPage';
 
 const Main = props => {
     return(
@@ -24,6 +25,7 @@ const Main = props => {
                 {...props}/>}/>
                 <Route exact path='/users/:id/new' render={props => <NewCamp
                 {...props}/>}/>
+                <Route exact path='/users/:user_id/campgrounds/:campground_id' render={props => <CampgroundPage {...props}/>}/>
             </Switch>
         </div>
     )

@@ -1,6 +1,6 @@
 import {apiCall} from '../../services/api';
 import {toast} from 'react-toastify'
-import { LOAD_CAMPS} from '../actionTypes';
+import { LOAD_CAMPS, REMOVE_CAMP} from '../actionTypes';
 
 export const loadCamps = camps => ({
   type: LOAD_CAMPS,
@@ -26,3 +26,20 @@ export const fetchCamps = () => {
       .catch(err => {toast.error("There was an error while fetching the campgrounds")});
   }
 }
+
+export const remove = id => ({
+  type: REMOVE_CAMP,
+  id
+});
+
+export const removeCamp = (user_id, camp_id) => {
+  return dispatch => {
+      return apiCall("delete", `http://localhost:8000/api/users/${user_id}/campgrounds/${camp_id}`)
+      .then(() => {
+          dispatch(remove(camp_id))}
+          )
+      .catch(err => {
+          toast.error('Unsuccessfull removal')
+      });
+  };
+};

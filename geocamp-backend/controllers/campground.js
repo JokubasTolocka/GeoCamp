@@ -22,3 +22,23 @@ exports.createCampground = async function(req,res,next){
         return next(err);
     }
 }
+
+exports.getCampground = async function(req,res,next){
+    try{
+        let foundCampground = await Campground.findById(req.params.campground_id).populate("user", {
+            name: true
+        });
+        return res.status(200).json(foundCampground);
+    } catch(err){
+        return next(err);
+    }
+}
+
+exports.deleteCampground = async function (req, res, next) {
+    try {
+        let deletedCampground = await Campground.findByIdAndDelete(req.params.campground_id);
+        return res.status(200).json(deletedCampground);
+    } catch (err) {
+        return next(err);
+    }
+};
