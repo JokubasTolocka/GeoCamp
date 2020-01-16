@@ -42,3 +42,24 @@ exports.deleteCampground = async function (req, res, next) {
         return next(err);
     }
 };
+
+exports.editCampground = async function(req, res, next){
+    try{
+        let updatedCamp = await Campground.findByIdAndUpdate(req.params.campground_id, {
+            location: req.body.center,
+            name: req.body.name,
+            description: req.body.description,
+            image: req.body.image
+        });
+        await updatedCamp.save();
+        // return res.status(200).json(updatedMessage);
+
+        if(res.statusCode >= 200 && res.statusCode <= 300 ) {
+        return res.status(200).send("updated successfully");
+        } else {
+        return next(error);
+        }
+    } catch(err){
+        return next(err);
+    }
+}

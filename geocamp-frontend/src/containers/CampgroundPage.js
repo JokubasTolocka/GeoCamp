@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 import {apiCall} from '../services/api';
 import {removeCamp} from '../store/actions/campgrounds';
 import GoogleMapReact from 'google-map-react';
@@ -97,6 +98,7 @@ class CampgroundPage extends Component{
                 </div>
                 {this.props.currentUser.user._id === this.state.user_id &&
                     <div className='camp-buttons'>
+                        <Link className='camp-edit' to={`/users/${this.state.user_id}/campgrounds/${this.state.id}/edit`}>Edit <i className="far fa-edit"></i></Link>
                         <button className='camp-delete' onClick={this.removeCampground}>Delete <i className="far fa-trash-alt"></i></button>
                     </div>
                     }

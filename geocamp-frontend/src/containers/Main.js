@@ -26,6 +26,7 @@ const Main = props => {
                 <Route exact path='/users/:id/new' render={props => <NewCamp
                 {...props}/>}/>
                 <Route exact path='/users/:user_id/campgrounds/:campground_id' render={props => <CampgroundPage {...props}/>}/>
+                <Route path='/users/:user_id/campgrounds/:campground_id/edit' render={props => <NewCamp Edit {...props}/>}/>
             </Switch>
         </div>
     )

@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import GoogleMapReact from 'google-map-react';
 import { connect } from "react-redux";
+import {apiCall} from '../services/api';
 import {googleStyles} from '../googleMapStyles';
-import { postCampground} from "../store/actions/campgrounds.js";
+import { postCampground, editCampground} from "../store/actions/campgrounds.js";
 
 const AnyReactComponent = () => <div><i className="fas fa-campground"></i></div>;
 
@@ -10,6 +11,7 @@ class NewCamp extends Component{
     constructor(props){
         super(props);
         this.state = {
+            id: '',
             location: {
                 lat: 59.95,
                 lng: 30.33
@@ -21,9 +23,31 @@ class NewCamp extends Component{
             },
             name: '',
             description: '',
-            image: ''
+            image: '',
+            user_id: ''
         }
         this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    componentDidMount(){
+        if(this.props.match.params.campground_id){          
+            apiCall('get', `http://localhost:8000/api/users/${this.props.match.params.user_id}/campgrounds/${this.props.match.params.campground_id}`)
+            .then(res => {
+                this.setState({
+                    id: res._id,
+                    center: res.location,
+                    name: res.name,
+                    description: res.description,
+                    image: res.image,
+                    user_id: res.user._id
+                })
+            });
+        }
+    }
+    handleEdit = e =>{
+        e.preventDefault();
+        this.props.editCampground(this.state);
+        this.props.history.push('/');
     }
 
     handleClick = e => {
@@ -105,7 +129,11 @@ class NewCamp extends Component{
                     />
                     </GoogleMapReact>
                 </div>
+                {!this.props.Edit ?
                 <button onClick={this.handleSubmit} className='create-button'>Submit!</button>
+                :
+                <button onClick={this.handleEdit} className='create-button'>Edit!</button>
+                }
             </div>
         )
     }
@@ -116,4 +144,4 @@ function mapStateToProps(state){
     }
 }
 
-export default connect(mapStateToProps, {postCampground})(NewCamp);
+export default connect(mapStateToProps, {postCampground, editCampground})(NewCamp);

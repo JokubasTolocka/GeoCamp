@@ -43,3 +43,12 @@ export const removeCamp = (user_id, camp_id) => {
       });
   };
 };
+
+export const editCampground = data => (dispatch, getState) => {
+  return apiCall("put", `http://localhost:8000/api/users/${data.user_id}/campgrounds/${data.id}`, data)
+    .then(res => {
+      toast.success('Campground edited successfully!')
+    })
+    .catch(err => {
+      toast.error('Campground edit failed. Did you fill out all the fields?')});
+};

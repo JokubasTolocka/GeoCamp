@@ -167,7 +167,7 @@ box-shadow: 12px 10px 34px -3px rgba(0,0,0,0.83);
   background-color: rgba(0, 0, 0, 0.342);  
   backdrop-filter: blur(5px);
   width: 500px;
-  margin: 60px auto;
+  margin: 10px auto;
   display: flex;
   flex-direction: column;
   border-radius: 8px;
@@ -305,19 +305,18 @@ box-shadow: 12px 10px 34px -3px rgba(0,0,0,0.83);
 }
 .camp-top-left{
   margin-top: 20px;
-  flex-basis: 50%;
+  width: 280px;
+  margin-right: 50px;
   margin-left: 16px;
   color: white;
 }
 .camp-image{
   border-radius: 8px;
-  flex-basis: 50%;
   margin-top: 20px;
   margin-left: 10px;
   margin-right: 16px;
   overflow: hidden;
   object-fit: cover;
-  position: relative;
   width: 200px;
   height: 200px;
 }
@@ -326,6 +325,7 @@ box-shadow: 12px 10px 34px -3px rgba(0,0,0,0.83);
   overflow: hidden;
   position: relative;
   height: 200px;
+  width: 200px;
 }
 
 .camp-text{
@@ -335,9 +335,7 @@ box-shadow: 12px 10px 34px -3px rgba(0,0,0,0.83);
   font-weight: 100;
   font-size: 16px;
 }
-.camp-description{
 
-}
 .camp-map{
   width: 600px;
   height: 200px;
@@ -351,19 +349,33 @@ box-shadow: 12px 10px 34px -3px rgba(0,0,0,0.83);
 }
 .camp-title{
   margin-top: 0;
-  word-break: break-all;
+  word-break: normal;
   text-transform: capitalize;
 }
 .camp-buttons{
   display: flex;
   justify-content: flex-end;
   padding-bottom: 16px;
-  margin-right: 10px;
+  margin-right: 16px;
 }
 .camp-delete{
+  width: 86px;
   border: none;
   border-radius: 8px;
   padding: 5px 16px;
   color: white;
   background-color: #b33939;
+}
+
+.camp-edit{
+  width: 50px;
+  line-height: 20px;
+  text-decoration: none;
+  font-size: 13.3333px;
+  border: none;
+  border-radius: 8px;
+  padding: 5px 16px;
+  margin-right: 8px;
+  color: white;
+  background-color: #b99037;
 }
