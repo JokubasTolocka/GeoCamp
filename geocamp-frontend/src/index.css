@@ -44,15 +44,17 @@ body {
   border: none;
   color: white;
   font-weight: 600;
+  background-color: #F66A6B;
   font-size: 16px;
   padding-top: 12px;
   font-family: 'Segoe UI';
-  background-color: #f18232;
   -webkit-box-shadow: 12px 10px 34px -3px rgba(0,0,0,0.83);
 -moz-box-shadow: 12px 10px 34px -3px rgba(0,0,0,0.83);
 box-shadow: 12px 10px 34px -3px rgba(0,0,0,0.83);
-
-  
+}
+.landing-sign:focus{
+  outline: none;
+  background-color: rgb(182, 92, 92);
 }
 .btn{
   position: relative;
@@ -86,6 +88,46 @@ box-shadow: 12px 10px 34px -3px rgba(0,0,0,0.83);
 #google{
   padding-right: 5px;
   font-size: 18px;
+}
+/* forgot, activate, reset */
+
+.forgot-form{
+  background-color: rgba(0, 0, 0, 0.342);  
+  backdrop-filter: blur(5px);
+  margin: auto 10%;
+  display: flex;
+  color: white;
+  flex-direction: column;
+  border-radius: 8px;
+}
+.forgot-text{
+  margin-left: 16px;
+  margin-bottom: 24px;
+}
+.forgot-input{
+  margin: 0px 16px;
+  width:  300px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: none
+}
+.forgot-input:focus{
+  outline: none;
+}
+.forgot-button{
+  margin: 0px 16px;
+  margin-bottom: 16px;
+  width:  170px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  margin-top: 16px;
+  cursor: pointer;
+  border: none;
+  color: white;
+  font-weight: 600;
+  background-color: #F66A6B;
+  font-size: 14px;
+  font-family: 'Segoe UI';
 }
 
 /* navbar */
@@ -154,11 +196,18 @@ box-shadow: 12px 10px 34px -3px rgba(0,0,0,0.83);
   filter: blur(0px);
 }
 .sign-button{
+  background-color: #F66A6B;
+  color: white;
   width: 200px;
   margin: 4px;
   border-radius: 8px;
   border: none;
+  font-size: 14px;
   padding: 10px 12px;
+}
+.signin-forgot{
+  color: white;
+  text-decoration: none;
 }
 
 /* create campground */
@@ -199,6 +248,8 @@ box-shadow: 12px 10px 34px -3px rgba(0,0,0,0.83);
   height: 200px;
 }
 .create-button{
+  background-color: #F66A6B;
+  color: white;
   margin: 24px 10px 30px 10px;
   padding: 10px 12px;
   width: 170px;
@@ -211,18 +262,36 @@ box-shadow: 12px 10px 34px -3px rgba(0,0,0,0.83);
 }
 
 /* camp card */
-.card-list{
-  display: flex;
-  flex-wrap: wrap;
+
+.card-list-map{
+  margin-top: 40px;
+  width: 100%;
+  padding-bottom: 40px;
+  height: 300px;
+}
+
+.camp-link{
+  color: rgb(160, 36, 36);
+  text-decoration: none;
+}
+
+.catalogue{
   background-color: rgba(0, 0, 0, 0.342);  
   backdrop-filter: blur(5px);
   border-radius: 8px;
   margin: auto 10%;
 }
+
+.card-list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
 .card{
   text-decoration: none;
   width: 250px;
   margin: 25px 20px;
+  
 }
 
 .camp-card{
@@ -230,6 +299,8 @@ box-shadow: 12px 10px 34px -3px rgba(0,0,0,0.83);
   text-decoration: none;
   background-color: #ffffff;
   width: 250px;
+  background: rgb(255,255,255);
+background: linear-gradient(0deg, rgba(255,255,255,1) 48%, rgba(246,106,107,1) 48%);
 }
 .card-middle{
   overflow: hidden;
@@ -249,7 +320,7 @@ box-shadow: 12px 10px 34px -3px rgba(0,0,0,0.83);
   transform: scale(1.1);
 }
 .card-top{
-  color: #303030;
+  color: #313131;
   text-decoration: none;
   height: 30px;
   padding-left: 8px;

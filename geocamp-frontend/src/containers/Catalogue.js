@@ -2,15 +2,25 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {fetchCamps} from '../store/actions/campgrounds';
 import {ToastContainer} from 'react-toastify'
+import {Link} from 'react-router-dom';
 import CampgroundCard from '../components/CampgroundCard';
 import 'react-toastify/dist/ReactToastify.min.css';
+import {googleStyles} from '../googleMapStyles';
+import GoogleMapReact from 'google-map-react';
+
+const AnyReactComponent = ({user_id, camp_id}) => <div><Link className='camp-link' to={`/users/${user_id}/campgrounds/${camp_id}`}><i className="fas fa-campground"></i></Link></div>;
 
 class Catalogue extends Component{
     constructor(props){
         super(props);
         this.state = {
             lat: null,
-            lng: null
+            lng: null,
+            location: {
+                lat: 59,
+                lng: 48
+            },
+            zoom: 0
         }
     }
     componentDidMount(){
@@ -26,9 +36,24 @@ class Catalogue extends Component{
 
 
     render(){
+        const mapOptions = {
+            styles: googleStyles
+        }
         const {lat, lng} = this.state;
         const{ campgrounds} = this.props;
-        const CampList = campgrounds.map(camp => {
+        const CampMapCopy = campgrounds.map(camp => camp).map(camp => {
+            return (
+            <AnyReactComponent
+                lat={camp.location.lat}
+                lng={camp.location.lng}
+                key={camp._id}
+                user_id={camp.user.id}
+                camp_id={camp._id}
+            />
+            )
+        });
+        const CampCopy = campgrounds.map((camp) => camp).slice(0, 4);
+        const CampList = CampCopy.map(camp => {
             return(
                 <CampgroundCard
                     key={camp._id}
@@ -51,8 +76,20 @@ class Catalogue extends Component{
         return(
             <div>
                 <ToastContainer/>
-                <div className='card-list'>
-                    {CampList}
+                <div className='catalogue'>
+                    <div className='card-list'>
+                        {CampList}
+                    </div>
+                    <div className='card-list-map'>
+                    <GoogleMapReact
+                            bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAPS_API }}
+                            defaultCenter={this.state.location}
+                            defaultZoom={this.state.zoom}
+                            options={mapOptions}
+                            > 
+                            {CampMapCopy}
+                        </GoogleMapReact>
+                    </div>
                 </div>
             </div>
         )

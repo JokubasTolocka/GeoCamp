@@ -31,10 +31,10 @@ class Validate extends Component{
     render(){
         const {name} = this.state;
         return(
-            <div>
+            <div className='forgot-form'>
                 <ToastContainer/>
-                <h1>Hey, {name}, Ready to activate your account?</h1>
-                <button onClick={this.handleClick}>Activate!</button>
+                <h1 className='forgot-text'>Hey, {name}, Ready to activate your account?</h1>
+                <button className='forgot-button' onClick={this.handleClick}>Activate!</button>
             </div>
         )
     }

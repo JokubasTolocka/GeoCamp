@@ -130,9 +130,9 @@ class NewCamp extends Component{
                     </GoogleMapReact>
                 </div>
                 {!this.props.Edit ?
-                <button onClick={this.handleSubmit} className='create-button'>Submit!</button>
+                <button onClick={this.handleSubmit} className='create-button'>Submit! <i class="fas fa-hiking"></i></button>
                 :
-                <button onClick={this.handleEdit} className='create-button'>Edit!</button>
+                <button onClick={this.handleEdit} className='create-button'>Edit! <i class="fas fa-hiking"></i></button>
                 }
             </div>
         )

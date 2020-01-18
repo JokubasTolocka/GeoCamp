@@ -36,13 +36,14 @@ class Reset extends Component{
     render(){
         const {newPassword, buttonText, name} = this.state;
         return(
-            <div>
+            <div className='forgot-form'>
                 <ToastContainer/>
-                <h1>Hey, {name}, Type your new password</h1>
+                <h1 className='forgot-text'>Hey, {name}, Type your new password</h1>
                 <form>
                     <div>
                         <label htmlFor='password'></label>
                         <input
+                        className='forgot-input'
                         placeholder='New password'
                         type='password'
                         onChange={this.handleChange}
@@ -52,7 +53,7 @@ class Reset extends Component{
                         />
                     </div>
                     <div>
-                        <button onClick={this.handleSubmit}>{buttonText}</button>
+                        <button className='forgot-button' onClick={this.handleSubmit}>{buttonText}</button>
                     </div>
                 </form>
             </div>

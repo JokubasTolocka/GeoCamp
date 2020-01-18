@@ -28,13 +28,14 @@ class Forgot extends Component{
     render(){
         const {email, buttonText} = this.state;
         return(
-            <div>
+            <div className='forgot-form'>
                 <ToastContainer/>
-                <h1>Forgot password</h1>
+                <h1 className='forgot-text'>Forgot password</h1>
                 <form>
                     <div>
                         <label htmlFor='email'></label>
                         <input
+                        className='forgot-input'
                         placeholder='Email'
                         type='email'
                         onChange={this.handleChange}
@@ -43,7 +44,7 @@ class Forgot extends Component{
                         />
                     </div>
                     <div>
-                        <button onClick={this.handleSubmit}>{buttonText}</button>
+                        <button className='forgot-button' onClick={this.handleSubmit}>{buttonText}</button>
                     </div>
                 </form>
             </div>

@@ -56,7 +56,7 @@ class Signin extends Component{
                         </div>
                         <div>
                             <button className='sign-button' onClick={this.handleSubmit}>{buttonText}</button>
-                            <Link to='/auth/password/forgot'>Forgot password</Link>
+                            <Link className='signin-forgot' to='/auth/password/forgot'>Forgot password</Link>
                         </div>
                     </form>
                 </div>
