@@ -59,11 +59,13 @@ class NewCamp extends Component{
         });
     };
     handleSubmit(e){
+        var text = this.state.description;
+        text = text.replace(/\n\r?/g, '<br />')
         e.preventDefault();
         let data = {
             location: this.state.center, 
             name: this.state.name,
-            description: this.state.description,
+            description: text,
             image: this.state.image,
             user: this.props.currentUser.user._id
         }
@@ -130,9 +132,9 @@ class NewCamp extends Component{
                     </GoogleMapReact>
                 </div>
                 {!this.props.Edit ?
-                <button onClick={this.handleSubmit} className='create-button'>Submit! <i class="fas fa-hiking"></i></button>
+                <button onClick={this.handleSubmit} className='create-button'>Submit! <i className="fas fa-hiking"></i></button>
                 :
-                <button onClick={this.handleEdit} className='create-button'>Edit! <i class="fas fa-hiking"></i></button>
+                <button onClick={this.handleEdit} className='create-button'>Edit! <i className="fas fa-hiking"></i></button>
                 }
             </div>
         )

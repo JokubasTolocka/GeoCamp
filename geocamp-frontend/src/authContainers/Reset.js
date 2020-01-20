@@ -36,8 +36,9 @@ class Reset extends Component{
     render(){
         const {newPassword, buttonText, name} = this.state;
         return(
-            <div className='forgot-form'>
+            <div>
                 <ToastContainer/>
+            <div className='forgot-form'>
                 <h1 className='forgot-text'>Hey, {name}, Type your new password</h1>
                 <form>
                     <div>
@@ -56,6 +57,7 @@ class Reset extends Component{
                         <button className='forgot-button' onClick={this.handleSubmit}>{buttonText}</button>
                     </div>
                 </form>
+            </div>
             </div>
         )
     }

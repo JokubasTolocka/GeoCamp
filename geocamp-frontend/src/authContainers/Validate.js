@@ -23,7 +23,6 @@ class Validate extends Component{
     }
     
     handleClick = e => {
-        console.log(this.state.token);
         e.preventDefault();
         this.props.validateUser(this.state.token)
     }
@@ -31,10 +30,12 @@ class Validate extends Component{
     render(){
         const {name} = this.state;
         return(
-            <div className='forgot-form'>
+            <div>
                 <ToastContainer/>
-                <h1 className='forgot-text'>Hey, {name}, Ready to activate your account?</h1>
-                <button className='forgot-button' onClick={this.handleClick}>Activate!</button>
+                <div className='forgot-form'>
+                    <h1 className='forgot-text'>Hey, {name}, Ready to activate your account?</h1>
+                    <button className='forgot-button' onClick={this.handleClick}>Activate!</button>
+                </div>
             </div>
         )
     }

@@ -52,7 +52,7 @@ class Catalogue extends Component{
             />
             )
         });
-        const CampCopy = campgrounds.map((camp) => camp).slice(0, 4);
+        const CampCopy = campgrounds.map((camp) => camp).sort(function(a, b){return b.AvgRating - a.AvgRating}).slice(0, 4);
         const CampList = CampCopy.map(camp => {
             return(
                 <CampgroundCard
@@ -79,7 +79,7 @@ class Catalogue extends Component{
                 <ToastContainer/>
                 <div className='catalogue'>
                     <div className='catalogue-text-top'>
-                        <h2 className='catalogue-quick'>Quick start.</h2>
+                        <h2 className='catalogue-quick'>Quick start. Best first</h2>
                         <Link className='catalogue-link-allcamps' to='/allcamps'>All Camps</Link>
                     </div>
                     <div className='card-list'>

@@ -20,7 +20,7 @@ class Google extends Component{
                         <button 
                             onClick={renderProps.onClick}
                             className='btn btn-g'
-                        ><i id='google' className="fab fa-google"></i> Google Login</button>
+                        ><i id='google' className="fab fa-google"></i></button>
                     )}
                     onSuccess={this.responseGoogle}
                     onFailure={this.responseGoogle}

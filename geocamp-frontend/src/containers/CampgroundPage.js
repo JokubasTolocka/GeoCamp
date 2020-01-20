@@ -44,7 +44,6 @@ class CampgroundPage extends Component{
 
     async onStarClick(nextValue, prevValue, name) {
         await this.setState({rating: nextValue});
-        // this.props.postRating(this.state.rating, this.props.currentUser.user._id)
         this.props.postRating(this.state, this.props.currentUser.user)
         window.location.reload();
       }
@@ -78,6 +77,7 @@ class CampgroundPage extends Component{
         const mapOptions = {
             styles: googleStyles
         }
+        console.log(this.state.description);
         return(
             <div>
                 <ToastContainer/>
@@ -93,7 +93,7 @@ class CampgroundPage extends Component{
                                 <StarRatingComponent 
                                     name="rate1" 
                                     starCount={5}
-                                    value={AvgRating}
+                                    value={Math.floor(AvgRating)}
                                     onStarClick={this.onStarClick.bind(this)}
                                     starColor={this.props.currentUser.user._id === this.state.user_id ? "#ffffff" : "#FFB400"}
                                     editing={this.props.currentUser.user._id === this.state.user_id ? false : true}
@@ -111,7 +111,7 @@ class CampgroundPage extends Component{
                     <p className='camp-description'>"{this.state.description}"</p>
                 </div>
                 <div className='camp-map'>
-                    {this.state.location ?
+                    {this.state.location && this.state.userLoc ?
                     <GoogleMapReact
                         bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAPS_API }}
                         defaultCenter={this.state.location}

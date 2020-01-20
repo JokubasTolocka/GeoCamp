@@ -38,8 +38,8 @@ class AllCamps extends Component{
                     date={camp.createdAt}
                     lat={camp.location.lat}
                     lng={camp.location.lng}
-                    currentUserLat={lat}
-                    currentUserLng={lng}
+                    currentUserLat={lat ? lat : null}
+                    currentUserLng={lng ? lng : null}
                     rating={camp.AvgRating}
                 />
             )

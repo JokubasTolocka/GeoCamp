@@ -76,7 +76,7 @@ exports.postRating = async function(req,res,next){
                 for(var i = 0; i< AllRatings.length; i++){
                     SumRating = SumRating + AllRatings[i].rating;
                 }
-                let AvgRating = Math.floor(SumRating / AllRatings.length);
+                let AvgRating = SumRating / AllRatings.length;
                 let foundCamp = Campground.findById({_id: req.params.campground_id});
                 await foundCamp.updateOne({AvgRating});
                 return res.status(200).json({
@@ -101,7 +101,7 @@ exports.postRating = async function(req,res,next){
             for(var i = 0; i< AllRatings.length; i++){
                 SumRating = SumRating + AllRatings[i].rating;
             }
-            let AvgRating = Math.floor(SumRating / AllRatings.length);
+            let AvgRating = SumRating / AllRatings.length;
             await foundCamp.updateOne({AvgRating, $inc: {ratingCount: 1}});
             return res.status(200).json({
                 message: "Rating posted successfully"

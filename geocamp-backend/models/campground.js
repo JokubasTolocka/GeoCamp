@@ -19,9 +19,11 @@ const campgroundSchema = new mongoose.Schema({
     },
     location: {
         lat: {
+            required: true,
             type: Number,
         },
         lng: {
+            required: true,
             type: Number
         } 
     },
@@ -31,7 +33,9 @@ const campgroundSchema = new mongoose.Schema({
         min: 0
     },
     AvgRating: {
-        type: Number
+        type: Number,
+        default: 0,
+        min: 0
     },
     ratings: [{
         type: mongoose.Schema.Types.ObjectId,

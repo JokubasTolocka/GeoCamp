@@ -28,8 +28,9 @@ class Forgot extends Component{
     render(){
         const {email, buttonText} = this.state;
         return(
-            <div className='forgot-form'>
+            <div>
                 <ToastContainer/>
+            <div className='forgot-form'>
                 <h1 className='forgot-text'>Forgot password</h1>
                 <form>
                     <div>
@@ -47,6 +48,7 @@ class Forgot extends Component{
                         <button className='forgot-button' onClick={this.handleSubmit}>{buttonText}</button>
                     </div>
                 </form>
+            </div>
             </div>
         )
     }
