@@ -52,3 +52,12 @@ export const editCampground = data => (dispatch, getState) => {
     .catch(err => {
       toast.error('Campground edit failed. Did you fill out all the fields?')});
 };
+
+export const postRating = (data, currentUserId) => (dispatch, getState) => {
+  return apiCall("post", `http://localhost:8000/api/users/${data.user_id}/campgrounds/${data.id}/users/${currentUserId._id}`, {rating: data.rating})
+    .then(res => {
+      toast.success(res.message);
+    })
+    .catch(err => {
+      toast.error('Rating was failed to post.')});
+};

@@ -65,6 +65,7 @@ class Catalogue extends Component{
                     date={camp.createdAt}
                     lat={camp.location.lat}
                     lng={camp.location.lng}
+                    rating={camp.AvgRating}
                     currentUserLat={lat}
                     currentUserLng={lng}
                 />
@@ -77,10 +78,17 @@ class Catalogue extends Component{
             <div>
                 <ToastContainer/>
                 <div className='catalogue'>
+                    <div className='catalogue-text-top'>
+                        <h2 className='catalogue-quick'>Quick start.</h2>
+                        <Link className='catalogue-link-allcamps' to='/allcamps'>All Camps</Link>
+                    </div>
                     <div className='card-list'>
                         {CampList}
                     </div>
                     <div className='card-list-map'>
+                    <div className='card-list-map-top'>
+                        <h2>All camping locations</h2>
+                    </div>
                     <GoogleMapReact
                             bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAPS_API }}
                             defaultCenter={this.state.location}

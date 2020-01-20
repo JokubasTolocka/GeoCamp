@@ -24,7 +24,19 @@ const campgroundSchema = new mongoose.Schema({
         lng: {
             type: Number
         } 
-    }
+    },
+    ratingCount: {
+        type: Number,
+        default: 0,
+        min: 0
+    },
+    AvgRating: {
+        type: Number
+    },
+    ratings: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Rating'
+    }]
 }, {
     timestamps: true
 })

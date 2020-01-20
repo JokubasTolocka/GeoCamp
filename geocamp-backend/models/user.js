@@ -26,6 +26,10 @@ const userSchema = new mongoose.Schema({
         data: String,
         default: ''
     },
+    ratings: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Rating'
+    }],
     campgrounds: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Campground'

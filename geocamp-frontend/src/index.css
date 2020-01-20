@@ -260,15 +260,61 @@ box-shadow: 12px 10px 34px -3px rgba(0,0,0,0.83);
 .create-button:focus, .create-input:focus{
   outline: none;
 }
+/* catalogue top */
+
+.catalogue-text-top{
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border: 1px solid #ffffff;
+  display: flex;
+  padding: 8px 48px;
+  justify-content: space-between;
+}
+.catalogue-quick{
+  font-size: 26px;
+  height: 26px;
+  line-height: 26px;
+  margin: 0;
+  margin-bottom: 8px;
+  padding-top: 10px;
+  font-weight: 100;
+  color: white;
+  margin-top: 8px
+}
+.catalogue-link-allcamps{
+  background-color: #F66A6B;
+  height: 25px;
+  padding: 10px 24px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
+  font-weight: 100;
+}
 
 /* camp card */
 
 .card-list-map{
   margin-top: 40px;
   width: 100%;
-  padding-bottom: 40px;
+  margin-bottom: 100px;
+  padding-bottom: 120px;
   height: 300px;
 }
+
+.card-list-map-top{
+  background-color: #ffffff;
+  margin-bottom: 0;
+  border-top-left-radius: 80px;
+  border-top-right-radius: 80px;
+}
+.card-list-map-top h2{
+  padding: 8px 48px;
+  font-weight: 100;
+  margin-bottom: 0;
+}
+
 
 .camp-link{
   color: rgb(160, 36, 36);
@@ -322,10 +368,17 @@ background: linear-gradient(0deg, rgba(255,255,255,1) 48%, rgba(246,106,107,1) 4
 .card-top{
   color: #313131;
   text-decoration: none;
+  display: flex;
+  justify-content: space-between;
   height: 30px;
   padding-left: 8px;
+  padding-right: 8px;
   padding-top: 5px;
 }
+.card-icon{
+  margin-top: 5px;
+}
+
 .card-title{
   font-family: 'Merriweather', serif;
   text-transform: uppercase;
@@ -380,6 +433,16 @@ background: linear-gradient(0deg, rgba(255,255,255,1) 48%, rgba(246,106,107,1) 4
   margin-right: 50px;
   margin-left: 16px;
   color: white;
+}
+.camp-rating{
+  margin-top: 8px;
+  display: flex;
+}
+.rating-count{
+  font-weight: 100;
+  margin: 0;
+  margin-top: 3px;
+  padding-left: 8px;
 }
 .camp-image{
   border-radius: 8px;
