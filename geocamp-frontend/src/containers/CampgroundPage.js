@@ -24,10 +24,6 @@ class CampgroundPage extends Component{
             zoom: 2,
             user_id: '',
             id: '',
-            userLoc: {
-                lat: null,
-                lng: null,
-            },
             center: {
                 lat: 59,
                 lng: 40
@@ -67,7 +63,6 @@ class CampgroundPage extends Component{
             position => this.setState({ 
                 userLoc: position.coords
             }), 
-            err => console.log(err)
             );
         
     }
@@ -77,7 +72,6 @@ class CampgroundPage extends Component{
         const mapOptions = {
             styles: googleStyles
         }
-        console.log(this.state.description);
         return(
             <div>
                 <ToastContainer/>
@@ -86,10 +80,12 @@ class CampgroundPage extends Component{
                     <div className='camp-top-left'>
                         <h1 className='camp-title'>{this.state.title}</h1>
                         <h3 className='camp-field'><i className="far fa-user"></i> {this.state.user}</h3>
-                        {this.state.userLoc && this.state.location ?(
+                        {this.state.userLoc ? (
                         <div>
                             <h5 className='camp-field'><i className="fas fa-map-marker-alt"></i> {getPreciseDistance({latitude: this.state.userLoc.latitude, longitude: this.state.userLoc.longitude}, {latitude: this.state.location.lat, longitude: this.state.location.lng}) / 1000}km Away</h5>
-                            <div className='camp-rating'>
+                        </div>
+                        ): null}
+                        <div className='camp-rating'>
                                 <StarRatingComponent 
                                     name="rate1" 
                                     starCount={5}
@@ -100,8 +96,6 @@ class CampgroundPage extends Component{
                                 />
                                 <h5 className='rating-count'>( {this.state.ratingCount} )</h5>
                             </div>
-                        </div>
-                        ): null}
                     </div>
                     <div className='camp-image'>
                         <img className='campground-image' src={this.state.image} alt='campground'/>
@@ -111,7 +105,7 @@ class CampgroundPage extends Component{
                     <p className='camp-description'>"{this.state.description}"</p>
                 </div>
                 <div className='camp-map'>
-                    {this.state.location && this.state.userLoc ?
+                    {this.state.location ?
                     <GoogleMapReact
                         bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAPS_API }}
                         defaultCenter={this.state.location}
