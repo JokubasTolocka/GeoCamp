@@ -637,12 +637,13 @@ background: linear-gradient(0deg, rgba(255,255,255,1) 48%, rgba(246,106,107,1) 4
   }
   .card-title{
     font-size: 14px;
-    transform: translateY(-130px)
+    transform: translateY(-125px)
   }
   .card-user{
     font-size: 10px;
     margin-top: 3px;
     margin-bottom: 0;
+    padding-left: 18px;
     padding-bottom: 3px;
   }
   .card-distance{
@@ -653,5 +654,37 @@ background: linear-gradient(0deg, rgba(255,255,255,1) 48%, rgba(246,106,107,1) 4
   }
   .card-bottom{
     flex-direction: column;
+  }
+  .card-top{
+    font-size: 10px;
+    height: 20px;
+  }
+  .card-icon{
+    margin-top: 3px;
+  }
+  .create-form{
+    width: 330px;
+    font-size: 12px;
+  }
+  .create-form h3{
+    font-size: 12px;
+  }
+  .create-input{
+    width: 280px;
+    font-size: 12px;
+  }
+  .create-google{
+    width: 330px;
+  }
+  .camp-page{
+    width: 330px;
+  }
+  .camp-map{
+    width: 330px;
+  }
+  .campground-image{
+    height: 100px;
+    width: 100px;
+    border-radius: 8px;
   }
 }

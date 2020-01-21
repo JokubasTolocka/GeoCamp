@@ -10,6 +10,7 @@ const CampgroundCard = ({rating, id, name, user,user_id, date, image, lat ,lng, 
                 <div className='card-top'>
                     <i className="fas fa-campground card-icon"></i>
                     <StarRatingComponent
+                        className='camp-card-star'
                         name='rate1'
                         starCount={5}
                         value={Math.floor(rating)}
